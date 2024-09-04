@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam's AI Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">SummarizeAI</a>
+            <ul>
+                <li><a href="#summarize">Summarize</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#api">API</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>AI-Powered Text Summarization</h1>
+            <p>Condense lengthy content into concise, meaningful summaries</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="summarize">
+            <h2>Summarize Your Text</h2>
+            <form id="summarize-form" method="post">
+                <textarea name="text" rows="10" placeholder="Enter your text here (up to 1024 tokens)...">{{ original_text if original_text else '' }}</textarea>
+                <button type="submit" id="submit-btn">Summarize</button>
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <span>Summarizing...</span>
+                </div>
+            </form>
+
+            {% if summary %}
+                <div class="result">
+                    <h3>Summary:</h3>
+                    <p>{{ summary }}</p>
+                </div>
+            {% endif %}
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </section>
+
+        <section id="about">
+            <h2>About SummarizeAI</h2>
+            <p>SummarizeAI uses the PEGASUS CNN/DailyMail model for state-of-the-art text summarization. Our model condenses complex information into clear, concise summaries.</p>
+            
+            <h3>Technical Details:</h3>
+            <ul>
+                <li>Model: PEGASUS CNN/DailyMail</li>
+                <li>Training Dataset: 14,732 examples</li>
+                <li>Input Length: Up to 1024 tokens</li>
+                <li>Output Length: Up to 128 tokens</li>
+                <li>Techniques: Beam search, length penalty</li>
+            </ul>
+
+            <h3>Model Performance:</h3>
+            <p>ROUGE scores on test data:</p>
+            <ul>
+                <li>ROUGE-1: 0.022373</li>
+                <li>ROUGE-2: 0.0</li>
+                <li>ROUGE-L: 0.02209</li>
+                <li>ROUGE-Lsum: 0.02219</li>
+            </ul>
+        </section>
+
+        <section id="api">
+            <h2>API Access</h2>
+            <p>Integrate our summarization capabilities into your applications:</p>
+            <pre><code>
+POST /predict
+Content-Type: application/json
+
+{
+    "text": "Your long text here..."
+}
+            </code></pre>
+            <p>For full API documentation, visit our <a href="/docs">API Docs</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Created by Shivam Dali | Empowering insights through AI</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('summarize-form').addEventListener('submit', function(e) {
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('loading').style.display = 'flex';
+        });
+    </script>
