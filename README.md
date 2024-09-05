@@ -1,134 +1,212 @@
-# End to end Text-Summarizer-Project
+# End-to-end Text Summarization Development to Deployment
 
-## Workflows
+## 🌟 Introduction
 
-1. Update config.yaml
-2. Update params.yaml
+In our information-rich world, the ability to quickly distill key points from lengthy texts is invaluable. Text summarization, a cutting-edge application of Natural Language Processing (NLP), addresses this need by condensing vast amounts of information into concise, meaningful summaries. This project showcases the development and deployment of a state-of-the-art text summarization model, bridging the gap between advanced NLP techniques and practical, real-world applications.
+
+## 🔍 Project Overview
+
+This repository offers a comprehensive, end-to-end journey through the creation of a powerful text summarization tool. We delve into the intricate process of fine-tuning a HuggingFace Transformer model on custom data, optimizing it for superior performance in summarization tasks. The project doesn't stop at model development; it extends to deployment on Amazon Web Services (AWS), demonstrating how to bring a machine learning model from concept to production.
+
+Key aspects covered in this project include:
+
+- In-depth exploration of Large Language Model (LLM) fine-tuning techniques
+- Detailed description of the dataset used for training
+- Step-by-step project timeline and setup instructions
+- Comprehensive breakdown of development phases
+- Insights into AWS deployment strategies
+
+Moreover, this project serves as a practical guide to implementing industry-standard practices in software development and MLOps, including modular coding, containerization with Docker, and setting up robust CI/CD pipelines.
+
+## 🚀 Features
+
+Our text summarization project boasts a range of features designed to showcase both the power of NLP and best practices in software development:
+
+1. **Advanced Model Fine-tuning**: 
+   - Leverage the HuggingFace Transformer architecture for state-of-the-art summarization capabilities
+   - Custom data integration for domain-specific summarization tasks
+
+2. **Cloud-based Deployment**:
+   - Harness the power of AWS services including EC2 and ECR for scalable, reliable deployment
+   - Implement GitHub Actions for streamlined cloud integration
+
+3. **Modular and Maintainable Code Structure**:
+   - Employ best practices in software engineering for clean, organized code
+   - Enhance long-term maintainability and ease of future improvements
+
+4. **Interactive User Interface**:
+   - Seamless integration with FastAPI to create an intuitive, responsive frontend
+   - Real-time summarization capabilities accessible through a user-friendly web interface
+
+5. **Robust CI/CD Pipeline**:
+   - Utilize GitHub Actions for automated testing, building, and deployment
+   - Ensure consistent code quality and streamline the development-to-production workflow
+
+6. **Containerized Application**:
+   - Dockerized deployment for consistency across different environments
+   - Simplified scaling and management of application dependencies
+
+This project not only delivers a powerful text summarization tool but also serves as a comprehensive template for developing and deploying sophisticated NLP applications in a production environment.
+
+
+## 🖥️ Applications
+
+This project includes two different applications:
+
+1. **Default FastAPI App**: A standard implementation using FastAPI.
+2. **Custom App (zapp.py)**: An enhanced version with animations and responsive CSS.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- Conda (recommended for environment management)
+
+### Installation and Usage
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/entbappy/End-to-end-Text-Summarization.git
+   cd End-to-end-Text-Summarization
+   ```
+
+2. Create and activate a Conda environment:
+   ```
+   conda create -n summary python=3.8 -y
+   conda activate summary
+   ```
+
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+4. Run the application:
+   - For the default FastAPI app:
+     ```
+     python app.py
+     ```
+   - For the custom app with animations:
+     ```
+     python zapp.py
+     ```
+
+5. Open your web browser and navigate to the local host and port displayed in the console.
+
+## 🖥️ Usage
+
+1. Enter or paste your text in the provided textarea
+2. Click "Summarize" to generate a summary
+3. View the generated summary below the input area
+
+## 🔗 API Access
+
+- **Endpoint**: `POST /predict`
+- **Content-Type**: `application/json`
+- **Request Body**:
+  ```json
+  {
+    "text": "Your long text here..."
+  }
+  ```
+
+For full API documentation, visit `/docs` when the server is running.
+
+## 📊 Model Performance
+
+- ROUGE-1: 0.022373
+- ROUGE-2: 0.0
+- ROUGE-L: 0.02209
+- ROUGE-Lsum: 0.02219
+
+**Note**: Due to hardware resource constraints, this model was not fully trained to save time. Full training typically takes 12 hours or more. The current performance metrics reflect a partially trained model.
+
+## 🚢 AWS Deployment with GitHub Actions
+
+### Workflow Steps
+
+1. Update `config.yaml`
+2. Update `params.yaml`
 3. Update entity
-4. Update the configuration manager in src config
-5. update the conponents
-6. update the pipeline
-7. update the main.py
-8. update the app.py
+4. Update the configuration manager in `src/config`
+5. Update the components
+6. Update the pipeline
+7. Update `main.py`
+8. Update `app.py`
+
+### AWS Setup
+
+1. Log in to AWS console
+2. Create an IAM user for deployment with the following access:
+   - EC2 access (virtual machine)
+   - ECR (Elastic Container Registry) access
+3. Create an ECR repository to store the Docker image
+4. Launch an EC2 instance (Ubuntu)
+5. Install Docker on the EC2 instance:
+   ```
+   sudo apt-get update -y
+   sudo apt-get upgrade
+   curl -fsSL https://get.docker.com -o get-docker.sh
+   sudo sh get-docker.sh
+   sudo usermod -aG docker ubuntu
+   newgrp docker
+   ```
+6. Configure EC2 as a self-hosted runner for GitHub Actions
+
+### GitHub Secrets Setup
+
+Set up the following secrets in your GitHub repository:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION` (e.g., us-east-1)
+- `AWS_ECR_LOGIN_URI` (e.g., 566373416292.dkr.ecr.ap-south-1.amazonaws.com)
+- `ECR_REPOSITORY_NAME` (e.g., simple-app)
+
+## 🚧 Future Improvements
+
+- [ ] Implement user accounts and history
+- [ ] Add support for multiple languages
+- [ ] Optimize for mobile devices
+- [ ] Integrate with cloud storage services
+- [ ] Complete full model training for improved performance
+
+## 👨‍💻 Contributors
+
+- Shivam Dali
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgements
+
+- [Krish Naik](https://github.com/krishnaik06) for the inspiring tutorial
+- [FastAPI](https://fastapi.tiangolo.com/) for the efficient backend framework
+- [Hugging Face](https://huggingface.co/) for the PEGASUS model
+
+---
+
+<p align="center">Made with ❤️ by Shivam Dali</p>
 
 
-# How to run?
-### STEPS:
 
-Clone the repository
 
-```bash
-https://github.com/entbappy/End-to-end-Text-Summarization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n summary python=3.8 -y
-```
-
-```bash
-conda activate summary
-```
-
-
-### STEP 02- install the requirements
-```bash
-pip install -r requirements.txt
-```
-
-
-```bash
-# Finally run the following command
-python app.py
-```
-
-Now,
-```bash
-open up you local host and port
-```
-
-
-```bash
-Author: Krish Naik
-Data Scientist
-Email: krishnaik06@gmail.com
-
-```
-
-
-
-# AWS-CICD-Deployment-with-Github-Actions
-
-## 1. Login to AWS console.
-
-## 2. Create IAM user for deployment
-
-	#with specific access
-
-	1. EC2 access : It is virtual machine
-
-	2. ECR: Elastic Container registry to save your docker image in aws
-
-
-	#Description: About the deployment
-
-	1. Build docker image of the source code
-
-	2. Push your docker image to ECR
-
-	3. Launch Your EC2 
-
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 061051233326.dkr.ecr.us-east-1.amazonaws.com/text-s
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
-
-# Vegeta
