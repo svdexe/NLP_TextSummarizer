@@ -172,9 +172,9 @@ Set up the following secrets in your GitHub repository:
 - [ ] Integrate with cloud storage services
 - [ ] Complete full model training for improved performance
 
-## 👨‍💻 Contributors
+## 👨‍💻 Contributor
 
-- Shivam Dali
+- Shivam Dali is a Data Science graduate student from Adelaide University. Connect with him on [LinkedIn](https://www.linkedin.com/in/shivam-dali-86b0a1201/) and explore more projects on [GitHub](https://https://github.com/svdexe).
 
 ## 📄 License
 
@@ -186,27 +186,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [FastAPI](https://fastapi.tiangolo.com/) for the efficient backend framework
 - [Hugging Face](https://huggingface.co/) for the PEGASUS model
 
----
 
-<p align="center">Made with ❤️ by Shivam Dali</p>
+## Additional Resources
+- [Medium Article](https://medium.com/@pratishsmashankar/end-to-end-text-summarization-development-to-deployment-project-review-83f9d28e40af) - Read the detailed project review on Medium.
+- [GitHub Repository](https://github.com/svdexe/NLP_TextSummarizer)) - Access the code and project files.
+- [LinkedIn](https://www.linkedin.com/in/shivam-dali-86b0a1201/) - Connect with me on LinkedIn.
 
-
-
-
-
-
-
+## Tutorial Link
+I followed this tutorial: [End To End NLP Project Implementation With Deployment Github Action- Text Summarization- Krish Naik](https://www.youtube.com/watch?v=p7V4Aa7qEpw&t=11054s&pp=ygUTZW5kIHRvIGVuZCAgbmxwIHN1bQ%3D%3D)
 
 
 
 
 
-
-
-
-
-
-
-
-
-```
+<p align="center">Made by Shivam Dali</p>
