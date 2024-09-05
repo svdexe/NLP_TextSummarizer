@@ -1,4 +1,4 @@
-# End-to-end Text Summarization Development to Deployment
+# End-to-end Text-Summarization-NLP-Project with AWS Deployment
 
 ## 🌟 Introduction
 
