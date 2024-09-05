@@ -63,6 +63,18 @@ This project includes two different applications:
 1. **Default FastAPI App**: A standard implementation using FastAPI.
 2. **Custom App (zapp.py)**: An enhanced version with animations and responsive CSS.
 
+## 📸 Application Screenshots
+
+### Default FastAPI App (app.py)
+
+![Default FastAPI App Screenshot](ScreenShots/Screenshot%202024-09-05%20143219%20fast%20API.png)
+*Caption: Screenshot of the default FastAPI application interface*
+
+### Custom App with Animations (zapp.py)
+
+![Custom App Screenshot](ScreenShots/Screenshot%202024-09-05%20133537%20zappy.png)
+*Caption: Screenshot of the custom application with animations and responsive design*
+
 ## 🚀 Getting Started
 
 ### Prerequisites
