@@ -126,7 +126,7 @@ This project includes two different applications:
   "epochs": 10,
   "batch_size": 32,
   "learning_rate": 0.001
-}
+  }
   ```
 
 For full API documentation, visit `/docs` when the server is running.
