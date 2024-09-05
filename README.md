@@ -45,6 +45,13 @@ Our text summarization project boasts a range of features designed to showcase b
 6. **Containerized Application**:
    - Dockerized deployment for consistency across different environments
    - Simplified scaling and management of application dependencies
+  
+7. **Cloud-based Model Training**:
+   - Train the model directly through the API after deployment
+   - Leverage powerful AWS servers for improved training performance
+   - Enables continuous model improvement without redeployment
+  
+   
 
 This project not only delivers a powerful text summarization tool but also serves as a comprehensive template for developing and deploying sophisticated NLP applications in a production environment.
 
@@ -94,11 +101,20 @@ This project includes two different applications:
 
 5. Open your web browser and navigate to the local host and port displayed in the console.
 
+## Cloud-based Model Training
+
+### After deploying the application on AWS:
+1. Access the training endpoint: POST /train
+2. Provide training parameters in the request body (details in API documentation)
+3. Monitor training progress through the provided logs
+4. Once training is complete, the API will automatically use the updated model
+
 ## 🖥️ Usage
 
 1. Enter or paste your text in the provided textarea
 2. Click "Summarize" to generate a summary
 3. View the generated summary below the input area
+4. (Optional) Initiate model training for improved performance
 
 ## 🔗 API Access
 
@@ -107,8 +123,10 @@ This project includes two different applications:
 - **Request Body**:
   ```json
   {
-    "text": "Your long text here..."
-  }
+  "epochs": 10,
+  "batch_size": 32,
+  "learning_rate": 0.001
+}
   ```
 
 For full API documentation, visit `/docs` when the server is running.
@@ -120,7 +138,8 @@ For full API documentation, visit `/docs` when the server is running.
 - ROUGE-L: 0.02209
 - ROUGE-Lsum: 0.02219
 
-**Note**: Due to hardware resource constraints, this model was not fully trained to save time. Full training typically takes 12 hours or more. The current performance metrics reflect a partially trained model.
+**Note**: Due to hardware resource constraints, this model was not fully trained to save time. Full training typically takes 12 hours or more. The current performance metrics reflect a partially trained model. You can achieve significantly better results by training the model on more powerful AWS servers after deployment.
+
 
 ## 🚢 AWS Deployment with GitHub Actions
 
@@ -153,6 +172,7 @@ For full API documentation, visit `/docs` when the server is running.
    newgrp docker
    ```
 6. Configure EC2 as a self-hosted runner for GitHub Actions
+7. Choose an EC2 instance type with sufficient computing power for model training (e.g., GPU-enabled instances for faster training)
 
 ### GitHub Secrets Setup
 
@@ -171,6 +191,8 @@ Set up the following secrets in your GitHub repository:
 - [ ] Optimize for mobile devices
 - [ ] Integrate with cloud storage services
 - [ ] Complete full model training for improved performance
+- [ ] Enable cloud-based model training for continuous improvement
+- [ ]  Implement automated periodic training using AWS Lambda
 
 ## 👨‍💻 Contributor
 
